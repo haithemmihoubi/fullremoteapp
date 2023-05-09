@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fullremotefactory/mobile_layout.dart';
 import 'package:lottie/lottie.dart';
 
 void main() {
@@ -15,7 +16,9 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+
       ),
+      debugShowCheckedModeBanner: false,
       home: const MyHomePage(),
     );
   }
@@ -43,10 +46,8 @@ class MyHomePage extends StatelessWidget {
         height: double.infinity,
         child: LayoutBuilder(
           builder: (context, constraints) {
-            if (constraints.maxWidth < 600) {
-              return const Center(
-                child: Text('Mobile Layout'),
-              );
+            if (constraints.maxWidth < 1000) {
+              return  const MobileMayout() ;
             } else {
               return SingleChildScrollView(
                 child: Container(
